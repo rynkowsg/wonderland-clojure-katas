@@ -5,18 +5,11 @@
 
 ;; Additional tests
 
-(deftest test-extend-encrypting-key
-  (testing "does it extend key properly"
-    (let [message "Tom has a big house"
-          exp-key "abcabcabcabcabcabca"]
-      (is (= exp-key
-             (extend-key "abc" (.length message)))))))
-
 (deftest test-finding-repeating-str
   (testing "repeating str"
-    (is (= "scones" (find-repeating-str "sconessconessconessco")))
-    (is (= "a" (find-repeating-str "aaaaaaaaaaaaaaaa")))
-    (is (= "abcdefghijkl" (find-repeating-str "abcdefghijkl")))))
+    (is (= (seq "scones")        (find-repeating-seq (seq "sconessconessconessco"))))
+    (is (= (seq "a")             (find-repeating-seq (seq "aaaaaaaaaaaaaaaa"))))
+    (is (= (seq "abcdefghijkl")) (find-repeating-seq (seq "abcdefghijkl")))))
 
 
 ;; Original tests
